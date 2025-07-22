@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Result</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(to right, #74ebd5, #ACB6E5);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+        }
+
+        .weather-container {
+            background-color: white;
+            padding: 40px 30px;
+            border-radius: 20px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 320px;
+        }
+
+        .temp {
+            font-size: 40px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .desc {
+            font-size: 18px;
+            font-style: italic;
+            color: #555;
+            margin-top: 10px;
+        }
+
+        .humidity {
+            margin-top: 10px;
+            font-size: 16px;
+            color: #666;
+        }
+
+        img {
+            width: 100px;
+            height: 100px;
+            margin-top: 20px;
+        }
+
+        .error-message {
+            font-size: 22px;
+            color: white;
+            text-align: center;
+            background-color: rgba(0,0,0,0.4);
+            padding: 20px 30px;
+            border-radius: 15px;
+        }
+    </style>
+</head>
+<body>
+
+    <% if (weather) { %>
+        <div class="weather-container">
+            <img src="<%= weather.imageURL %>" alt="weather icon">
+            <div class="temp"><%= weather.temp %>°C</div>
+            <div class="desc"><%= weather.weatherDescription %></div>
+            <div class="humidity">Humidity: <%= weather.humidity %>%</div>
+        </div>
+    <% } else { %>
+        <div class="error-message">
+            <%= error %>
+        </div>
+    <% } %>
+
+</body>
+</html>
